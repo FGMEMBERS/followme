@@ -1,0 +1,349 @@
+<PropertyList>
+ 
+<path>followme.ac</path>
+
+<nasal>
+ <load>
+ var livery_update = aircraft.livery_update.new("Aircraft/followme/Models/Messages");
+ </load>   
+ <unload>
+ livery_update.stop();
+ </unload>   
+</nasal>
+
+<animation>
+ <type>material</type>
+ <object-name>sign</object-name>
+ <property-base>sim/model/livery</property-base>
+ <texture-prop>texture</texture-prop>
+ <texture>blanco.rgb</texture>
+</animation>
+
+<!-- instruments -->
+
+<model> 
+ <path>Aircraft/followme/Models/fuelgauge.xml</path>
+ <offsets> 
+  <x-m>1.31</x-m>
+  <y-m>-0.25</y-m>
+  <z-m>1.01</z-m>
+ </offsets>
+</model>
+
+<model> 
+ <path>Aircraft/followme/Models/speedometer.xml</path>
+ <offsets> 
+  <x-m>1.31</x-m>
+  <y-m>-0.38</y-m>
+  <z-m>1.03</z-m>
+ </offsets>
+</model>
+	  
+<!-- STEERINGWHEEL -->
+
+<animation>  
+ <type>rotate</type>  
+ <object-name>steeringwheel</object-name>
+ <property>controls/flight/aileron</property>
+ <factor>-100</factor>
+ <center>
+  <x-m> 1.50</x-m>
+  <y-m>-0.33</y-m>
+  <z-m> 0.97</z-m>
+ </center>
+ <axis>
+  <x1-m>1.218</x1-m>
+  <y1-m>-0.33</y1-m>
+  <z1-m>0.713</z1-m>
+  <x2-m>1.783</x2-m>
+  <y2-m>-0.33</y2-m>
+  <z2-m>1.303</z2-m>
+ </axis>
+</animation>
+
+<!-- FRONT WHEEL LEFT -->
+
+<animation>
+ <type>rotate</type>
+ <object-name>Tyre1</object-name>
+ <property>controls/flight/aileron</property>
+ <factor>-25</factor>
+ <center>
+  <x-m> 0.681</x-m>
+  <y-m>-0.557</y-m>
+  <z-m> 0.289</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>0.0</y>
+  <z>1.0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>translate</type>
+ <object-name>Tyre1</object-name>
+ <property>gear/gear[0]/compression-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>	
+   <dep>0</dep>
+  </entry>
+  <entry>	
+	<ind>1.00</ind>
+	<dep>0.2</dep>
+  </entry>  
+ </interpolation>
+ <axis>
+  <x>0</x>	
+  <y>0</y>
+  <z>1</z>	
+ </axis>
+</animation>
+ 
+<animation>
+ <type>spin</type>
+ <object-name>Tyre1</object-name>
+ <property>gear/gear[2]/rollspeed-ms</property>
+ <factor>-15</factor>
+ <center>
+  <x-m>0.682</x-m>
+  <y-m>0.627</y-m>
+  <z-m>0.291</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+
+<!-- FRONT WHEEL RIGHT -->
+
+<animation>
+ <type>rotate</type>
+ <object-name>Tyre2</object-name>
+ <property>controls/flight/aileron</property>
+ <factor>-25</factor>
+ <center>
+  <x-m> 0.681</x-m>
+  <y-m> 0.557</y-m>
+  <z-m> 0.289</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>0.0</y>
+  <z>1.0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>translate</type>
+ <object-name>Tyre2</object-name>
+ <property>gear/gear[1]/compression-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <dep>0</dep>
+  </entry>
+  <entry>
+   <ind>1.00</ind>
+   <dep>0.2</dep>
+  </entry>
+ </interpolation>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+ 
+<animation>
+ <type>spin</type>
+ <object-name>Tyre2</object-name> 
+ <property>gear/gear[1]/rollspeed-ms</property>
+ <factor>-15</factor>
+ <center>
+  <x-m>0.682</x-m>
+  <y-m>-0.627</y-m>
+  <z-m>0.291</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+ 
+<!-- REAR WHEEL LEFT -->
+
+<animation>
+ <type>translate</type>
+ <object-name>Tyre3</object-name>
+ <property>gear/gear[2]/compression-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <dep>0</dep>
+  </entry>
+  <entry>
+   <ind>1.00</ind>
+   <dep>0.2</dep>
+  </entry>
+ </interpolation>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+ 
+<animation>  
+ <type>spin</type>
+ <object-name>Tyre3</object-name>
+ <property>gear/gear[3]/rollspeed-ms</property>
+ <factor>-15</factor>
+ <center>
+  <x-m>3.17</x-m>
+  <y-m>0.625</y-m>
+  <z-m>0.282</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+ 
+<!-- REAR WHEEL RIGHT -->
+
+<animation>
+ <type>translate</type>
+ <object-name>Tyre4</object-name>
+ <property>gear/gear[3]/compression-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <dep>0</dep>
+  </entry>
+  <entry>
+   <ind>1.00</ind>
+   <dep>0.2</dep>
+  </entry>
+ </interpolation>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>spin</type>
+ <object-name>Tyre4</object-name>
+ <property>gear/gear[1]/rollspeed-ms</property>
+ <factor>-15</factor>
+ <center>
+  <x-m>3.17</x-m>
+  <y-m>-0.625</y-m>
+  <z-m>0.282</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+
+<!-- DOOR ANIMATIONS -->
+
+<!-- LEFT FRONT DOOR -->
+
+<animation>
+ <type>pick</type>
+ <object-name>ldoor</object-name>
+ <action>
+  <button>0</button>
+  <repeatable>false</repeatable>  
+  <binding>
+   <command>property-toggle</command>
+   <property>controls/gear/lfdoor</property>
+  </binding>
+ </action>
+</animation>
+ 
+<animation>
+ <type>rotate</type>
+ <object-name>ldoor</object-name>
+ <property>controls/gear//lfdoor</property>
+ <factor>-75</factor>
+ <center>
+  <x-m> 1</x-m>
+  <y-m>-0.78</y-m>
+  <z-m> 0</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>0.0</y>
+  <z>1.0</z>
+ </axis>
+</animation>
+
+<!-- RIGHT FRONT DOOR -->
+
+<animation>
+ <type>pick</type>
+ <object-name>rdoor</object-name>
+ <action>
+  <button>0</button>
+  <repeatable>false</repeatable>  
+  <binding>
+   <command>property-toggle</command>
+   <property>controls/gear/rfdoor</property>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>rdoor</object-name>
+ <property>controls/gear//rfdoor</property>
+ <factor>75</factor>
+ <center>
+  <x-m>1</x-m>
+  <y-m>0.78</y-m>
+  <z-m>0</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>0.0</y>
+  <z>1.0</z>
+ </axis>
+</animation>
+
+<!-- BRAKING LIGHTS -->
+
+<animation>
+ <type>select</type>
+ <object-name>braking_lights_lit</object-name>
+ <condition>
+   <greater-than>
+    <property>/controls/gear/brake-left</property>
+    <value>0</value>
+   </greater-than>
+ </condition>
+</animation>
+
+<animation>
+ <type>select</type>
+ <object-name>braking_lights_unlit</object-name>
+ <condition>
+   <less-than>
+    <property>/controls/gear/brake-left</property>
+    <value>0.01</value>
+   </less-than>
+ </condition>
+</animation>
+
+</PropertyList>
+ 
