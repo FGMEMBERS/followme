@@ -1000,7 +1000,7 @@ OBJECT poly
 name "face"
 data 6
 Circle
-texture "fuel.png"
+texture "fuelgauge.png"
 texrep 1 1
 crease 30.000000
 numvert 14
@@ -1102,7 +1102,7 @@ OBJECT poly
 name "needle"
 data 8
 Cylinder
-texture "fuel.png"
+texture "fuelgauge.png"
 texrep 1 1
 crease 30.000000
 numvert 13
