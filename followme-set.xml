@@ -73,14 +73,14 @@
 			<desc>Toggle direction</desc>
 		</key>
 		<text>
-		You can select the message to be displayed on the bar, through the "Follow Me > Select Message" menu.
+		You can select the message to be displayed on the bar, through the "Follow Me > Select message" menu.
 		</text>
 	</help>
 	
 	<menubar>
 		<default>
 			<menu n="10">
-				<label>Follow Me</label>
+				<label>Follow me</label>
 				<enabled type="bool">true</enabled>	
 				<item>
 					<label>Select Message</label>
@@ -105,17 +105,35 @@
 </engines>
 
 <controls>
-	<gear>
-		<door type="bool">false</door>
-		<door type="bool">false</door>
-	</gear>
 	<flight>
 		<aileron alias="/controls/flight/rudder" />
 	</flight>
+	<lighting>
+		<headlight>0</headlight>
+		<indicator-left>0</indicator-left>
+		<indicator-right>0</indicator-right>
+		<warning>1</warning>
+	</lighting>
 </controls>
 
 <input>
 	<keyboard>
+		<key n="91"> 
+			<name>[</name>
+			<desc>Toggle left indicator lights</desc>
+			<binding> 
+				<command>property-toggle</command>
+				<property>/controls/lighting/indicator-left</property>
+			</binding>
+		</key>
+		<key n="93"> 
+			<name>]</name>
+			<desc>Toggle right indicator lights</desc>
+			<binding> 
+				<command>property-toggle</command>
+				<property>/controls/lighting/indicator-right</property>
+			</binding>
+		</key>
 		<key n="109"> 
 			<name>m</name>
 			<desc>Toggle direction</desc>

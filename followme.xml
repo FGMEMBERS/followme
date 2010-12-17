@@ -121,7 +121,7 @@
               <product>
                 <property>/controls/engines/engine/throttle</property>
                 <property>/controls/engines/engine/direction</property>
-                <value>1000</value>
+                <value>1200</value>
               </product>
             </function>
             <output>external_reactions/engine/magnitude</output>

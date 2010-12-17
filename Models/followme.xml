@@ -12,12 +12,30 @@
 </nasal>
 
 <animation>
- 	<type>material</type>
- 	<object-name>sign</object-name>
- 	<property-base>sim/model/livery</property-base>
- 	<texture-prop>texture</texture-prop>
- 	<texture>blanco.png</texture>
+ <type>material</type>
+ <object-name>sign</object-name>
+ <property-base>sim/model/livery</property-base>
+ <texture-prop>texture</texture-prop>
+ <texture>blanco.png</texture>
 </animation>
+
+<model> 
+ <path>Aircraft/followme/Models/warninglight.xml</path>
+ <offsets> 
+  <x-m> 3.4</x-m>
+  <y-m>-0.4</y-m>
+  <z-m> 1.7</z-m>
+ </offsets>
+</model>
+
+<model> 
+ <path>Aircraft/followme/Models/warninglight.xml</path>
+ <offsets> 
+  <x-m> 3.4</x-m>
+  <y-m> 0.4</y-m>
+  <z-m> 1.7</z-m>
+ </offsets>
+</model>
 
 <!-- INSTRUMENTS -->
 
@@ -266,8 +284,8 @@
   <button>0</button>
   <repeatable>false</repeatable>  
   <binding>
-   <command>property-toggle</command>
-   <property>controls/gear/lfdoor</property>
+   <command>nasal</command>
+   <script>followme.frontleft_door.toggle()</script>
   </binding>
  </action>
 </animation>
@@ -275,7 +293,7 @@
 <animation>
  <type>rotate</type>
  <object-name>ldoor</object-name>
- <property>controls/gear//lfdoor</property>
+ <property>controls/doors/frontleft/position-norm</property>
  <factor>-75</factor>
  <center>
   <x-m> 1</x-m>
@@ -298,8 +316,8 @@
   <button>0</button>
   <repeatable>false</repeatable>  
   <binding>
-   <command>property-toggle</command>
-   <property>controls/gear/rfdoor</property>
+   <command>nasal</command>
+   <script>followme.frontright_door.toggle()</script>
   </binding>
  </action>
 </animation>
@@ -307,7 +325,7 @@
 <animation>
  <type>rotate</type>
  <object-name>rdoor</object-name>
- <property>controls/gear//rfdoor</property>
+ <property>controls/doors/frontright/position-norm</property>
  <factor>75</factor>
  <center>
   <x-m>1</x-m>
@@ -320,23 +338,125 @@
   <z>1.0</z>
  </axis>
 </animation>
+	
+<!--LEFT REAR DOOR -->
+
+<animation>
+ <type>pick</type>
+ <object-name>door.rl</object-name>
+ <action>
+  <button>0</button>
+  <repeatable>false</repeatable>  
+  <binding>
+   <command>nasal</command>
+   <script>followme.rearleft_door.toggle()</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>door.rl</object-name>
+ <object-name>rearwiper</object-name>
+ <property>controls/doors/rearleft/position-norm</property>
+ <factor>-90</factor>
+ <center>
+  <x-m> 3.7</x-m>
+  <y-m>-0.6</y-m>
+  <z-m> 0</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>0.0</y>
+  <z>1.0</z>
+ </axis>
+</animation>
+
+<!-- RIGHT REAR DOOR -->
+
+<animation>
+ <type>pick</type>
+ <object-name>door.rr</object-name>
+ <action>
+  <button>0</button>
+  <repeatable>false</repeatable>  
+  <binding>
+   <command>nasal</command>
+   <script>followme.rearright_door.toggle()</script>
+  </binding>
+ </action>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>door.rr</object-name>
+ <property>controls/doors/rearright/position-norm</property>
+ <factor>90</factor>
+ <center>
+  <x-m>3.7</x-m>
+  <y-m>0.6</y-m>
+  <z-m>0</z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>0.0</y>
+  <z>1.0</z>
+ </axis>
+</animation>
 
 <!-- LIGHTS -->
 
 <effect>
-	<inherits-from>Effects/light-cone</inherits-from>
-	<object-name>Cone</object-name>
+ <inherits-from>Effects/light-cone</inherits-from>
+ <object-name>Cone</object-name>
 </effect>
 
 <animation>
-	<type>material</type>
-	<object-name>braking_lights</object-name>
-	<emission>
-		<red>10.0</red>
-		<green>0.0</green>
-		<blue>0.0</blue>
-		<factor-prop>/controls/gear/brake-left</factor-prop>
-	</emission>
+ <type>select</type>
+ <object-name>Cone</object-name>
+ <object-name>Cone-texture</object-name>
+ <condition>
+  <property>controls/lighting/headlight</property>
+ </condition>
+</animation>
+
+<animation>
+ <type>material</type>
+ <object-name>indicater_left</object-name>
+ <emission>
+  <red>1.0</red>
+  <green>0.8</green>
+  <blue>0.2</blue>
+  <factor-prop>sim/model/lights/indicator-left/state</factor-prop>
+ </emission>
+</animation>
+
+<animation>
+ <type>material</type>
+ <object-name>indicater_right</object-name>
+ <emission>
+  <red>1.0</red>
+  <green>0.8</green>
+  <blue>0.2</blue>
+  <factor-prop>sim/model/lights/indicator-right/state</factor-prop>
+ </emission>
+</animation>
+
+<animation>
+ <type>material</type>
+ <object-name>braking_lights</object-name>
+ <emission>
+  <red>1.0</red>
+  <green>0.0</green>
+  <blue>0.0</blue>
+  <factor-prop>/controls/gear/brake-left</factor-prop>
+ </emission>
+ <condition>
+  <greater-than>
+   <property>/controls/gear/brake-left</property>
+   <value>0.3</value>
+  </greater-than>
+ </condition>
 </animation>
 
 </PropertyList>
