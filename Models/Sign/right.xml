@@ -2,10 +2,10 @@
 <PropertyList>
 <sim>
 	<model>
-		<livery>
+		<message>
 			<name type="string">Right</name>
-			<texture>Messages/right.png</texture>
-		</livery>
+			<texture-message>Sign/right.png</texture-message>
+		</message>
 	</model>
 </sim>
 </PropertyList>
