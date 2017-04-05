@@ -12,6 +12,15 @@
 		<cockpit type="int">3</cockpit>
 		<model type="int">4</model>
 	</rating>
+
+	<tags>
+		<tag>groundvehicle</tag>
+		<tag>1970s</tag>
+		<tag>1980s</tag>
+		<tag>1990s</tag>
+		<tag>2000s</tag>
+		<tag>2010s</tag>
+	</tags>
 	
 	<flight-model>jsb</flight-model>
 	<aero>followme</aero>
